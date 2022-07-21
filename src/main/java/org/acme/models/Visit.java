@@ -1,7 +1,7 @@
 package org.acme.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,8 +20,8 @@ public class Visit extends PanacheEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name="patient_id", nullable=false)
-    @JsonbTransient
+    @JoinColumn(nullable=false)
+    @JsonBackReference
     private Patient patient;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;

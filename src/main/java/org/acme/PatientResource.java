@@ -22,7 +22,7 @@ public class PatientResource {
         return patientRepository.findAll().list();
     }
 
-    @POST
+    @GET
     @Path("{id}")
     public Patient findById(Long id) {
         return patientRepository.findById(id);

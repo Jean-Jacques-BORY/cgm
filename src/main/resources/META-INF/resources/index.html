@@ -415,7 +415,7 @@
             },
             findById(id){
                 axios
-                    .post('http://localhost:8080/patient/'+id)
+                    .get('http://localhost:8080/patient/'+id)
                     .then(response => (this.patientDetails = response.data))
             }
         },

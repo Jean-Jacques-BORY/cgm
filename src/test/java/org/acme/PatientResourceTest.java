@@ -1,21 +1,31 @@
 package org.acme;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.acme.repositories.PatientRepository;
 import org.junit.jupiter.api.Test;
-
+import javax.inject.Inject;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 public class PatientResourceTest {
 
+    @Inject
+    PatientRepository patientRepository;
+
     @Test
-    public void testHelloEndpoint() {
+    public void testFindAllEndpoint() {
         given()
           .when().get("/patient")
           .then()
-             .statusCode(200)
-             .body(is("[{\"id\":1,\"name\":\"Cherry\",\"visits\":[]},{\"id\":2,\"name\":\"Apple\",\"visits\":[]},{\"id\":3,\"name\":\"Banana\",\"visits\":[]}]"));
+             .statusCode(200);
     }
 
+
+    @Test
+    public void testFindByIdEndpoint() {
+        given().pathParam("id", 1)
+                .when().get("/patient/{id}")
+                .then()
+                .statusCode(200);
+    }
 }

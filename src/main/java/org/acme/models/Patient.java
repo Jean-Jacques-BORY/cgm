@@ -1,5 +1,6 @@
 package org.acme.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class Patient extends PanacheEntity {
     @Column(unique = true)
     private Integer socialSecurityNumber;
     private Date birthDate;
+    @JsonManagedReference
     @OneToMany(targetEntity=Visit.class, mappedBy="patient", fetch = FetchType.EAGER)
     private List<Visit> visits = new ArrayList<>();
 
