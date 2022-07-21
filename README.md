@@ -1,3 +1,14 @@
+# To begin with this project
+
+All persistence data are in H2 database, it means that if you restart the server it will erase the data.
+Because it is H2 it will be easy to move to another database like postres.
+
+After launching the webapp, you can try to add visits to patients at localhost:8080, there is a user interface.
+
+# CRUD base application
+
+In order to have a better code structure, i choose "Panache" for the repository pattern.
+
 # code-with-quarkus Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
