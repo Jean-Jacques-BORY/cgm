@@ -1,6 +1,5 @@
 package org.acme.InputDtos;
 
-import org.acme.models.Patient;
 import org.acme.models.VisitReasonEnum;
 import org.acme.models.VisitTypeEnum;
 import java.util.Date;
