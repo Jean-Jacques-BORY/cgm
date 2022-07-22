@@ -48,6 +48,10 @@ public class VisitResourceTest {
                 .statusCode(201);
     }
 
+    /**
+     * problem with this test because can't retrieve visit in visit repository
+     * in Visit Resource
+     */
     @Transactional
     public void testUpdateEndpoint() {
         Patient patient = patientRepository.findById(1L);
