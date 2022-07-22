@@ -61,7 +61,6 @@ public class VisitResourceTest {
         patient.getVisits().add(visit);
         patientRepository.persist(patient);
         Visit visitInRepo = visitRepository.findAll().singleResult();
-        System.out.println("zz: "+ visitInRepo.id);
         VisitInputDto visitInputDto = new VisitInputDto();
         visitInputDto.setId(visitInRepo.id);
         visitInputDto.setDate(new Date());
@@ -76,7 +75,6 @@ public class VisitResourceTest {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        System.out.println("visitJson "+ visitJson);
         given().contentType(ContentType.JSON).body(visitJson)
                 .when().put("/visit/update")
                 .then()
